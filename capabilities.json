@@ -12,7 +12,7 @@
       "evidence": [
         "osint_entity_resolution/models.py",
         "schemas/entity-record.schema.json",
-        "tests/test_models.py"
+        "tests/test_resolution.py"
       ]
     },
     {
@@ -22,7 +22,7 @@
       "description": "Produces heuristic candidate matches from exact public identifiers or name similarity with explicit reason codes and pair budgets.",
       "evidence": [
         "osint_entity_resolution/resolver.py",
-        "tests/test_resolver.py"
+        "tests/test_resolution.py"
       ],
       "limitations": [
         "No automatic merge, identity assertion, calibrated probability or people matching."

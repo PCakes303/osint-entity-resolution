@@ -1,21 +1,78 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/PCakes303/osint-entity-resolution/blob/main/manifest.json",
   "manifest_version": "1.0.0",
   "id": "entity-resolution",
   "name": "osint-entity-resolution",
   "version": "1.1.0",
+  "visibility": "public",
   "maturity": "scaffolding",
-  "role": "Bounded public non-personal entity candidate matching with explicit uncertainty and human review; no people matching, auto-merge or graph writes.",
+  "summary": "Bounded candidate matching among public non-personal entities with explicit uncertainty and human review. No people matching, identity assertion, automatic merge or graph writes.",
+  "license": {
+    "expression": null,
+    "status": "pending-review",
+    "notes": "Scoped mixed-license strategy; file-level provenance and third-party license review remains open."
+  },
+  "interfaces": [],
   "dependencies": [
-    "osint-evidence",
-    "schema-registry",
-    "identity-trust",
-    "policy-engine",
-    "audit-provenance",
-    "emergency-control",
-    "compliance-governance",
-    "secure-supply-chain"
+    {
+      "id": "osint-evidence",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "schema-registry",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "identity-trust",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "policy-engine",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "audit-provenance",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "emergency-control",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "compliance-governance",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "secure-supply-chain",
+      "constraint": "*",
+      "kind": "contract"
+    }
   ],
-  "entrypoint": "osint_entity_resolution/resolver.py",
-  "license_status": "scoped-mixed",
-  "execution_authority": false
+  "entrypoints": [
+    "osint_entity_resolution/resolver.py"
+  ],
+  "security": {
+    "threat_model": "docs/THREAT-MODEL.md",
+    "secrets_in_repository": false,
+    "data_classification": "public",
+    "security_contact": null
+  },
+  "repository_url": "https://github.com/PCakes303/osint-entity-resolution",
+  "default_branch": "main",
+  "compatibility": [],
+  "evidence": [
+    {
+      "claim": "Local tests exercise bounded public non-personal candidate resolution and review behavior; they do not establish identity or authorize automatic merging.",
+      "kind": "test",
+      "location": "tests/test_resolution.py"
+    }
+  ]
 }

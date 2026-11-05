@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mrcakes931.dev/osint/entity-record/1.0.0",
+  "title": "Public Entity Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_version",
+    "entity_id",
+    "entity_type",
+    "canonical_name",
+    "normalized_name",
+    "identifiers",
+    "aliases",
+    "evidence_refs",
+    "source_refs",
+    "observed_at",
+    "review_status"
+  ],
+  "properties": {
+    "record_version": {
+      "const": "1.0"
+    },
+    "entity_id": {
+      "type": "string",
+      "pattern": "^(org|project|dataset|publication|registry):[A-Za-z0-9][A-Za-z0-9._:-]{0,120}$"
+    },
+    "entity_type": {
+      "enum": [
+        "public_organization",
+        "public_software_project",
+        "public_dataset",
+        "public_publication",
+        "public_registry"
+      ]
+    },
+    "canonical_name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 256
+    },
+    "normalized_name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 256
+    },
+    "identifiers": {
+      "type": "object",
+      "maxProperties": 8,
+      "propertyNames": {
+        "enum": [
+          "domain",
+          "public_registry_id",
+          "repository_url",
+          "doi",
+          "dataset_id",
+          "organization_id"
+        ]
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 256
+      }
+    },
+    "aliases": {
+      "type": "array",
+      "maxItems": 25,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 256
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 128
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 25,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3,
+        "maxLength": 128
+      }
+    },
+    "jurisdiction": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_status": {
+      "enum": [
+        "provisional",
+        "candidate",
+        "resolved",
+        "disputed",
+        "withdrawn"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "manifest_version": "1.0.0",
+  "id": "entity-resolution",
+  "name": "osint-entity-resolution",
+  "version": "1.1.0",
+  "maturity": "scaffolding",
+  "role": "Bounded public non-personal entity candidate matching with explicit uncertainty and human review; no people matching, auto-merge or graph writes.",
+  "dependencies": [
+    "osint-evidence",
+    "schema-registry",
+    "identity-trust",
+    "policy-engine",
+    "audit-provenance",
+    "emergency-control",
+    "compliance-governance",
+    "secure-supply-chain"
+  ],
+  "entrypoint": "osint_entity_resolution/resolver.py",
+  "license_status": "scoped-mixed",
+  "execution_authority": false
+}

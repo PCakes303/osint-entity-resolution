@@ -1,0 +1,42 @@
+{
+  "capabilities_version": "1.0.0",
+  "repository": "osint-entity-resolution",
+  "repository_id": "entity-resolution",
+  "maturity": "scaffolding",
+  "capabilities": [
+    {
+      "id": "osint.entity.normalize",
+      "name": "Deterministic public entity normalization",
+      "status": "tested",
+      "description": "Normalizes names and validates public organization/project/dataset/publication/registry records with evidence references.",
+      "evidence": [
+        "osint_entity_resolution/models.py",
+        "schemas/entity-record.schema.json",
+        "tests/test_models.py"
+      ]
+    },
+    {
+      "id": "osint.entity.candidate-match",
+      "name": "Bounded candidate matching",
+      "status": "tested",
+      "description": "Produces heuristic candidate matches from exact public identifiers or name similarity with explicit reason codes and pair budgets.",
+      "evidence": [
+        "osint_entity_resolution/resolver.py",
+        "tests/test_resolver.py"
+      ],
+      "limitations": [
+        "No automatic merge, identity assertion, calibrated probability or people matching."
+      ]
+    }
+  ],
+  "explicit_non_capabilities": [
+    "Real-person or private-individual resolution",
+    "Social account matching or personal profiling",
+    "Sensitive attribute inference or protected-trait scoring",
+    "Automated entity merge or identity assertion",
+    "Consequential decision-making",
+    "Network ingestion or external API access",
+    "Knowledge graph persistence",
+    "Legal applicability or compliance certification"
+  ]
+}

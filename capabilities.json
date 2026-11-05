@@ -1,5 +1,5 @@
 {
-  "capabilities_version": "1.0.0",
+  "capabilities_version": "1.1.0",
   "repository": "osint-entity-resolution",
   "repository_id": "entity-resolution",
   "maturity": "scaffolding",
